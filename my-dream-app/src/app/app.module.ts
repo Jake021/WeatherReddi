@@ -17,13 +17,19 @@ import { HomeComponent } from './home/home.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
+import { ProfilesComponent } from './profiles/profiles.component';
+import { LoginSignupPageComponent } from './login-signup/login-signup-page/login-signup-page.component';
+import { LoginSignupComponent } from './login-signup/login-signup.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
-    HomeComponent
+    HomeComponent,
+    ProfilesComponent,
+    LoginSignupPageComponent,
+    LoginSignupComponent
   ],
   imports: [
     BrowserModule,
