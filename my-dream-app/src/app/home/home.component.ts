@@ -29,7 +29,10 @@ export class HomeComponent {
 
   onClick() {
 
-    console.log(fetch('https://api.openweathermap.org/data/2.5/onecall?lat=44.953705&lon=-93.089958&appid=7166823e1e205e712f9c3c6576878966'));
+    console.log(
+    fetch('https://api.openweathermap.org/data/2.5/onecall?lat=44.953705&lon=-93.089958&appid=7166823e1e205e712f9c3c6576878966')
+    .then(response => response.json())
+    .then(data => console.log(data)));
     //myTest();
   }
 
