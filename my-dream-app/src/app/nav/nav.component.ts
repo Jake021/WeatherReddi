@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
@@ -20,7 +21,6 @@ export class NavComponent {
       //window.alert("Needs to Route to login page");
       this.router.navigateByUrl('/login-signup');
     } 
-
   constructor(private breakpointObserver: BreakpointObserver, private router: Router) {}
 
 }

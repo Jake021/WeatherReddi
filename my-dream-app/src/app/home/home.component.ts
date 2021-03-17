@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
+//import * as weatherApi from "weatherApi";
+declare const myTest: any;
 
 @Component({
   selector: 'app-home',
@@ -24,6 +26,12 @@ export class HomeComponent {
       ];
     })
   );
+
+  onClick() {
+
+    console.log(fetch('https://api.openweathermap.org/data/2.5/onecall?lat=44.953705&lon=-93.089958&appid=7166823e1e205e712f9c3c6576878966'));
+    //myTest();
+  }
 
   constructor(private breakpointObserver: BreakpointObserver) {}
 }
