@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 
@@ -35,18 +35,24 @@ export class HomeComponent {
   sunset='';
   temp='';
   visibility='';
+  lat = '';
+  lon = '';
 
   getCurrentWeather() {
-
-      async function get() {
-        let url = 'https://api.openweathermap.org/data/2.5/onecall?lat=44.953705&lon=-93.089958&appid=7166823e1e205e712f9c3c6576878966'
+    //Change the lat and long here.
+    this.lat = '44.895963';
+    this.lon = '-93.356050';
+    //input the cords as strings
+      async function get(x:String,y:String) {
+        let url = 'https://api.openweathermap.org/data/2.5/onecall?lat='+x+'&lon='+y+'&appid=7166823e1e205e712f9c3c6576878966';
         let obj = await (await fetch(url)).json();
         
         return obj;
     }
     var tags;
     (async () => {
-      tags = await get()
+      //Here is where the lat and long are being inputed
+      tags = await get(this.lat,this.lon)
       console.log(tags) //can remove this later once data is preserved better
 
       this.clouds = ('Clouds: ' + tags.current.clouds);
@@ -65,7 +71,9 @@ export class HomeComponent {
     this.testFunction();
   }
 
-  testFunction(){console.log("here in test function")}
+  testFunction(){
+    console.log("here in test function"+ this.temp);
+  }
 
   constructor(private breakpointObserver: BreakpointObserver) {}
 }
