@@ -50,7 +50,7 @@ export class HomeComponent {
       console.log(tags) //can remove this later once data is preserved better
 
       this.clouds = ('Clouds: ' + tags.current.clouds);
-      this.dewPoint = ('Dew Points: ' + tags.current.dew_point);
+      this.dewPoint = ('Dew Point: ' + tags.current.dew_point);
       this.dt = ('dt: ' + tags.current.dt);
       this.feelsLike= ('Feels Like: ' + tags.current.feels_like);
       this.humidity= ('Humidity: ' + tags.current.humidity);
