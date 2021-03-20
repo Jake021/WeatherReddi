@@ -45,8 +45,8 @@ export class HomeComponent {
     this.lat = '44.895963';
     this.lon = '-93.356050';
     //input the cords as strings
-      async function get(x:String,y:String) {
-        let url = 'https://api.openweathermap.org/data/2.5/onecall?lat='+x+'&lon='+y+'&appid=7166823e1e205e712f9c3c6576878966';
+      async function get(lat:String,lon:String) {
+        let url = 'https://api.openweathermap.org/data/2.5/onecall?lat='+lat+'&lon='+lon+'&appid=7166823e1e205e712f9c3c6576878966';
         let obj = await (await fetch(url)).json();
         
         return obj;
