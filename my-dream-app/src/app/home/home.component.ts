@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
+import { toBase64String } from '@angular/compiler/src/output/source_map';
 
 @Component({
   selector: 'app-home',
@@ -35,6 +36,7 @@ export class HomeComponent {
   sunset='';
   temp='';
   visibility='';
+  main='';
   lat = '';
   lon = '';
 
@@ -53,7 +55,6 @@ export class HomeComponent {
     (async () => {
       //Here is where the lat and long are being inputed
       tags = await get(this.lat,this.lon)
-      console.log(tags) //can remove this later once data is preserved better
 
       this.clouds = ('Clouds: ' + tags.current.clouds);
       this.dewPoint = ('Dew Point: ' + tags.current.dew_point);
@@ -65,14 +66,10 @@ export class HomeComponent {
       this.sunset= ('Sunset: ' + tags.current.sunset);
       this.temp= ('Temperature: ' + tags.current.temp);
       this.visibility= ('Visibility: ' + tags.current.visibility);
+      this.main = ('main: ' + tags.current.weather[0].main);
 
     })()  
-    
-    this.testFunction();
-  }
 
-  testFunction(){
-    console.log("here in test function"+ this.temp);
   }
 
   constructor(private breakpointObserver: BreakpointObserver) {}
