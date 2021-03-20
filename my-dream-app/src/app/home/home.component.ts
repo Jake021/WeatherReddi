@@ -14,12 +14,20 @@ export class HomeComponent {
     map(({ matches }) => {
       if (matches) {
         return [
-          { title: 'Current Weather', cols: 1, rows: 2 }
+          { title: 'Current Weather', cols: 1, rows: 1 },
+          { title: 'Day 2', cols: 1, rows: 1 },
+          { title: 'Day 3', cols: 1, rows: 1 },
+          { title: 'Day 4', cols: 1, rows: 1 },
+          { title: 'Day 5', cols: 1, rows: 1 }
         ];
       }
 
       return [
-        { title: 'Current Weather', cols: 2, rows: 2 }
+        { title: 'Current Weather', cols: 1, rows: 1 },
+        { title: 'Day 2', cols: 1, rows: 1 },
+        { title: 'Day 3', cols: 1, rows: 1 },
+        { title: 'Day 4', cols: 1, rows: 1 },
+        { title: 'Day 5', cols: 1, rows: 1 }
       ];
     })
   );
