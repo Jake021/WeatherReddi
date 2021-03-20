@@ -1,11 +1,27 @@
+
+
 <div class="grid-container">
-  <h1 class="mat-h1">Forecast</h1>
+  <h1 class="mat-h1">Home</h1>
+  <button mat-raised-button (click)="getCurrentWeather()">Get Current Forecast</button>
   <mat-grid-list cols="2" rowHeight="350px">
     <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
       <mat-card class="dashboard-card">
         <mat-card-header>
           <mat-card-title>
             {{card.title}}
+            <h3></h3>
+            <p>{{clouds}}</p>
+            <p>{{dewPoint}}</p>
+            <p>{{dt}}</p>
+            <p>{{feelsLike}}</p>
+            <p>{{humidity}}</p>
+            <p>{{pressure}}</p>
+            <p>{{sunrise}}</p>
+            <p>{{sunset}}</p>
+            <p>{{temp}}</p>
+            <p>{{visibility}}</p>
+            <p>{{main}}</p>
+            
           </mat-card-title>
         </mat-card-header>
       </mat-card>
