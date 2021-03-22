@@ -20,6 +20,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { ProfilesComponent } from './profiles/profiles.component';
 import { LoginSignupPageComponent } from './login-signup/login-signup-page/login-signup-page.component';
 import { LoginSignupComponent } from './login-signup/login-signup.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { LoginSignupComponent } from './login-signup/login-signup.component';
     MatListModule,
     MatGridListModule,
     MatCardModule,
-    MatMenuModule
+    MatMenuModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

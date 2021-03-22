@@ -45,21 +45,15 @@ export class HomeComponent {
   lat = '';
   lon = '';
   cityState='';
-  myInput = 'l';
-  
+  locationInput = '';
 
   getCurrentWeather() {
-    //Change the lat and long here.
-    //saint paul mn lat 44.895963 long -93.35605 
-    // this.lat = '44.895963';
-    // this.lon = '-93.35605';
-    //input the cords as strings
-
+    this.cityState = this.locationInput;
     async function getLocation(location:String) {
         let url = 'https://api.opencagedata.com/geocode/v1/json?q='+location+'&key=2ba758912b6f487fb6aac6ada7ff320b';
         let obj = await (await fetch(url)).json();
-        console.log(location);
-        console.log(obj);
+        console.log(location); //should remove later
+        console.log(obj); //should remove later
         return obj;
 
     }
@@ -88,8 +82,6 @@ export class HomeComponent {
       this.visibility= ('Visibility: ' + (tags.current.visibility == "10000" ? 10.00 : Math.round(tags.current.visibility*0.000621371 ))+ " mi");
       //this.main = ('main: ' + tags.current.weather[0].main); 
       this.windSpeed= ('Wind Speed: ' + Math.round(tags.current.wind_speed) + ' mph');
-
-      console.log(tags.current.visibility);
     })()  
 
    
@@ -108,15 +100,7 @@ export class HomeComponent {
     return formattedTime;
   }
 
-  getVal(val : KeyboardEvent){
-    if(val.key != 'Enter'){
-      this.cityState = this.cityState+val.key;
-      //console.log(this.cityState);
-    }else{
-    //console.log(this.cityState);
-    this.cityState = "";
-  }
-  }
+ //TODO: create a function to check JSON output
 
  
 
