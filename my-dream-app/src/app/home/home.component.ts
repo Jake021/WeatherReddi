@@ -44,15 +44,26 @@ export class HomeComponent {
   windSpeed='';
   lat = '';
   lon = '';
-  value='';
+  cityState='';
+  myInput = 'l';
   
 
   getCurrentWeather() {
     //Change the lat and long here.
     //saint paul mn lat 44.895963 long -93.35605 
-    this.lat = '44.895963';
-    this.lon = '-93.35605';
+    // this.lat = '44.895963';
+    // this.lon = '-93.35605';
     //input the cords as strings
+
+    async function getLocation(location:String) {
+        let url = 'https://api.opencagedata.com/geocode/v1/json?q='+location+'&key=2ba758912b6f487fb6aac6ada7ff320b';
+        let obj = await (await fetch(url)).json();
+        console.log(location);
+        console.log(obj);
+        return obj;
+
+    }
+    var loca; // this variable will get the JSON from Open Cage Data for lat and lon
       async function get(lat:String,lon:String) {
         let url = 'https://api.openweathermap.org/data/2.5/onecall?lat='+lat+'&lon='+lon+'&appid=7166823e1e205e712f9c3c6576878966&units=imperial';
         let obj = await (await fetch(url)).json();
@@ -62,6 +73,11 @@ export class HomeComponent {
     var tags;
     (async () => {
       //Here is where the lat and long are being inputed
+      loca = await getLocation(this.cityState);
+      this.lat = loca.results[0].geometry.lat;
+      this.lon = loca.results[0].geometry.lng;
+
+
       tags = await get(this.lat,this.lon)
 
       this.feelsLike= ('Feels Like: ' + Math.floor(tags.current.feels_like)+'°');
@@ -79,7 +95,6 @@ export class HomeComponent {
    
     
   }
-
   sunriseSunsetConversion(input : number){
 
     let unix_time = input;
@@ -95,11 +110,11 @@ export class HomeComponent {
 
   getVal(val : KeyboardEvent){
     if(val.key != 'Enter'){
-      this.value = this.value+val.key;
-      //console.log(this.value);
+      this.cityState = this.cityState+val.key;
+      //console.log(this.cityState);
     }else{
-    console.log(this.value);
-    this.value = "";
+    //console.log(this.cityState);
+    this.cityState = "";
   }
   }
 
