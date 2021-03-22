@@ -1,9 +1,5 @@
-
-
 <div class="grid-container">
   <h1 class="mat-h1">Home</h1>
-  <!-- <input type= "text"  (keyup)="getVal($event)" id = "locationInput" /> -->
-
   <input type="text" class="form-control" id="locationInput" name="locationInput" [(ngModel)]="locationInput" placeholder="Ciy, State">
   <button mat-raised-button (click)="getCurrentWeather()">Get Current Forecast</button>
   <mat-grid-list cols="5" rowHeight="2:4">

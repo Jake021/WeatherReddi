@@ -1,7 +1,6 @@
 import { Component, Input, Output } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
-import { toBase64String } from '@angular/compiler/src/output/source_map';
 
 @Component({
   selector: 'app-home',
@@ -40,7 +39,6 @@ export class HomeComponent {
   sunset='';
   temp='';
   visibility='';
-  //main='';s
   windSpeed='';
   lat = '';
   lon = '';
@@ -51,13 +49,21 @@ export class HomeComponent {
     this.cityState = this.locationInput;
     async function getLocation(location:String) {
         let url = 'https://api.opencagedata.com/geocode/v1/json?q='+location+'&key=2ba758912b6f487fb6aac6ada7ff320b';
-        let obj = await (await fetch(url)).json();
-        console.log(location); //should remove later
-        console.log(obj); //should remove later
-        return obj;
+        
+        //if the JSON returns an error, this will prompt the user to re-enter the city and state
+        let obj = await (await fetch(url)
+        .then(function(response) {
+          if (!response.ok) {
+              window.alert("Incorrect Format Detected. Please enter [City], [State]");
+              //throw Error(response.statusText); --not sure why this is useful, saving in case we need it
+          }
+          return response;
+      })).json();
+
+         return obj;
 
     }
-    var loca; // this variable will get the JSON from Open Cage Data for lat and lon
+    var loca; // this variable will get the JSON from Open Cage Data for lat and lon on city user inputs
       async function get(lat:String,lon:String) {
         let url = 'https://api.openweathermap.org/data/2.5/onecall?lat='+lat+'&lon='+lon+'&appid=7166823e1e205e712f9c3c6576878966&units=imperial';
         let obj = await (await fetch(url)).json();
@@ -80,12 +86,9 @@ export class HomeComponent {
       this.sunset= ('Sunset: ' + this.sunriseSunsetConversion(tags.current.sunset));
       this.temp= ('Temperature: ' + Math.floor(tags.current.temp)+'°');
       this.visibility= ('Visibility: ' + (tags.current.visibility == "10000" ? 10.00 : Math.round(tags.current.visibility*0.000621371 ))+ " mi");
-      //this.main = ('main: ' + tags.current.weather[0].main); 
       this.windSpeed= ('Wind Speed: ' + Math.round(tags.current.wind_speed) + ' mph');
     })()  
 
-   
-    
   }
   sunriseSunsetConversion(input : number){
 
@@ -99,10 +102,6 @@ export class HomeComponent {
 
     return formattedTime;
   }
-
- //TODO: create a function to check JSON output
-
- 
 
   constructor(private breakpointObserver: BreakpointObserver) {}
 }
