@@ -87,7 +87,7 @@ export class HomeComponent {
            throw Error("Low Confidence");
          }
 
-         console.log(obj);
+         //console.log(obj);
          return obj;
 
     }
@@ -96,6 +96,7 @@ export class HomeComponent {
         let url = 'https://api.openweathermap.org/data/2.5/onecall?lat='+lat+'&lon='+lon+'&appid=7166823e1e205e712f9c3c6576878966&units=imperial';
         let obj = await (await fetch(url)).json();
         
+        console.log(obj);
         return obj;
     }
     var tags;

@@ -21,6 +21,8 @@ import { ProfilesComponent } from './profiles/profiles.component';
 import { LoginSignupPageComponent } from './login-signup/login-signup-page/login-signup-page.component';
 import { LoginSignupComponent } from './login-signup/login-signup.component';
 import { FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field'; 
+import { MatInputModule } from '@angular/material/input';
 
 
 @NgModule({
@@ -46,7 +48,9 @@ import { FormsModule } from '@angular/forms';
     MatGridListModule,
     MatCardModule,
     MatMenuModule,
-    FormsModule
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
