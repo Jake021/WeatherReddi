@@ -1,7 +1,11 @@
 <div class="grid-container">
-  <h1 class="mat-h1">Home</h1>
-  <input type="text" class="form-control" id="locationInput" name="locationInput" [(ngModel)]="locationInput" placeholder="City, State">
-  <button mat-raised-button (click)="checkUserInput()">Get Current Forecast</button>
+  <h1 class="center">Home</h1>
+
+  <div class="center">
+    <input matInput type="text" class="form-control" id="locationInput" name="locationInput" [(ngModel)]="locationInput" placeholder="City, State">
+    <button mat-raised-button (click)="checkUserInput()">Get Current Forecast</button>
+  </div>
+
   <mat-grid-list cols="5" rowHeight="2:4">
     <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
       <mat-card class="dashboard-card">
@@ -9,13 +13,13 @@
           <mat-card-title>
             {{card.title}}
             <h3></h3>
-            <p>{{temp}}</p>
-            <p>{{feelsLike}}</p>
-            <p>{{windSpeed}}</p> 
-            <p>{{sunrise}}</p>
-            <p>{{sunset}}</p>
-            <p>{{humidity}}</p>
-            <p>{{visibility}}</p>
+            <p class="weather-value-fields">{{temp}}</p>
+            <p class="weather-value-fields">{{feelsLike}}</p>
+            <p class="weather-value-fields">{{windSpeed}}</p> 
+            <p class="weather-value-fields">{{sunrise}}</p>
+            <p class="weather-value-fields">{{sunset}}</p>
+            <p class="weather-value-fields">{{humidity}}</p>
+            <p class="weather-value-fields">{{visibility}}</p>
             
           </mat-card-title>
         </mat-card-header>
