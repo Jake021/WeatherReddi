@@ -1,7 +1,7 @@
 <div class="grid-container">
   <h1 class="mat-h1">Home</h1>
-  <input type="text" class="form-control" id="locationInput" name="locationInput" [(ngModel)]="locationInput" placeholder="Ciy, State">
-  <button mat-raised-button (click)="getCurrentWeather()">Get Current Forecast</button>
+  <input type="text" class="form-control" id="locationInput" name="locationInput" [(ngModel)]="locationInput" placeholder="City, State">
+  <button mat-raised-button (click)="checkUserInput()">Get Current Forecast</button>
   <mat-grid-list cols="5" rowHeight="2:4">
     <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
       <mat-card class="dashboard-card">

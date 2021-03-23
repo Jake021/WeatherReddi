@@ -45,8 +45,20 @@ export class HomeComponent {
   cityState='';
   locationInput = '';
 
-  getCurrentWeather() {
+  checkUserInput(){
     this.cityState = this.locationInput;
+
+    var includesBothCityAndState = this.cityState.includes(',');
+
+    if (includesBothCityAndState){
+      this.getCurrentWeather();
+    } else{
+      window.alert("Please enter a valid [City], [State]");
+    }
+  }
+
+  getCurrentWeather() {
+    //this.cityState = this.locationInput;
     async function getLocation(location:String) {
         let url = 'https://api.opencagedata.com/geocode/v1/json?q='+location+'&countrycode=us&key=2ba758912b6f487fb6aac6ada7ff320b';
         
@@ -54,7 +66,7 @@ export class HomeComponent {
         let obj = await (await fetch(url)
         .then(function(response) {
           if (!response.ok) {
-              window.alert("Incorrect Format. Please enter [City], [State]");
+              window.alert("Please enter a valid [City], [State]");
               throw Error(response.statusText); 
           }
           return response;
@@ -68,9 +80,10 @@ export class HomeComponent {
           * Also checking that this result is not undefined
           */
          if (typeof obj.results[0] === "undefined" || obj.results[0].confidence > 6){
-           window.alert("Incorrect Format. Please enter [City], [State]");
+           window.alert("Please enter a valid [City], [State]");
            throw Error("Low Confidence");
          }
+
          console.log(obj);
          return obj;
 
@@ -115,5 +128,6 @@ export class HomeComponent {
     return formattedTime;
   }
 
+ 
   constructor(private breakpointObserver: BreakpointObserver) {}
 }
