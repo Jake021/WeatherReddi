@@ -55,11 +55,22 @@ export class HomeComponent {
         .then(function(response) {
           if (!response.ok) {
               window.alert("Incorrect Format Detected. Please enter [City], [State]");
-              //throw Error(response.statusText); --not sure why this is useful, saving in case we need it
+              throw Error(response.statusText); 
           }
           return response;
       })).json();
 
+
+         console.log(obj);
+         /**
+          * The Open Cage API uses a confidence rating when matching what the user inputs and what
+          * it finds in its search. If the confidence level is too high, there is a chance that the API
+          * will return a location that is not what the user wants
+          */
+         if (obj.results[0].confidence > 6){
+           window.alert("Incorrect Format Detected. Please enter [City], [State]");
+           throw Error("Low Confidence");
+         }
          return obj;
 
     }
