@@ -45,12 +45,16 @@ export class HomeComponent {
   cityState='';
   locationInput = '';
 
+  /**
+   * This function uses a regular expression to make sure the user is inputting
+   * the city and state correctly
+   */
   checkUserInput(){
     this.cityState = this.locationInput;
 
-    var includesBothCityAndState = this.cityState.includes(',');
+    var correctFormat = /([A-Za-z]+(?: [A-Za-z]+)*),? ([A-Za-z]{2})/.test(this.cityState);
 
-    if (includesBothCityAndState){
+    if (correctFormat){
       this.getCurrentWeather();
     } else{
       window.alert("Please enter a valid [City], [State]");
@@ -58,7 +62,6 @@ export class HomeComponent {
   }
 
   getCurrentWeather() {
-    //this.cityState = this.locationInput;
     async function getLocation(location:String) {
         let url = 'https://api.opencagedata.com/geocode/v1/json?q='+location+'&countrycode=us&key=2ba758912b6f487fb6aac6ada7ff320b';
         
@@ -128,6 +131,5 @@ export class HomeComponent {
     return formattedTime;
   }
 
- 
   constructor(private breakpointObserver: BreakpointObserver) {}
 }
