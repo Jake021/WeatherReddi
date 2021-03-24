@@ -10,23 +10,105 @@
 
 
   <mat-grid-list cols="5" rowHeight="2:4">
-    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
+    <mat-grid-tile >
       <mat-card class="dashboard-card">
         <mat-card-header>
           <mat-card-title>
-            {{card.title}}
+            {{todayTitle}}
             <h3></h3>
-            <p class="weather-value-fields">{{temp}}</p>
-            <p class="weather-value-fields">{{feelsLike}}</p>
-            <p class="weather-value-fields">{{windSpeed}}</p> 
-            <p class="weather-value-fields">{{sunrise}}</p>
-            <p class="weather-value-fields">{{sunset}}</p>
-            <p class="weather-value-fields">{{humidity}}</p>
-            <p class="weather-value-fields">{{visibility}}</p>
+            <p class="weather-value-fields">{{tempDayOne}}</p>
+            <p class="weather-value-fields">{{feelsLikeDayOne}}</p>
+            <p class="weather-value-fields">{{windSpeedDayOne}}</p> 
+            <p class="weather-value-fields">{{sunriseDayOne}}</p>
+            <p class="weather-value-fields">{{sunsetDayOne}}</p>
+            <p class="weather-value-fields">{{humidityDayOne}}</p>
+            <p class="weather-value-fields">{{visibilityDayOne}}</p>
             
           </mat-card-title>
         </mat-card-header>
       </mat-card>
     </mat-grid-tile>
+
+    <mat-grid-tile >
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            {{dayTwoDay}}
+            <h3></h3>
+            <p class="weather-value-fields">{{tempMaxDayTwo}}</p>
+            <p class="weather-value-fields">{{tempMinDayTwo}}</p>
+            <!-- <p class="weather-value-fields">{{feelsLikeDayTwo}}</p> -->
+            <p class="weather-value-fields">{{windSpeedDayTwo}}</p> 
+            <p class="weather-value-fields">{{sunriseDayTwo}}</p>
+            <p class="weather-value-fields">{{sunsetDayTwo}}</p>
+            <p class="weather-value-fields">{{humidityDayTwo}}</p>
+            <p class="weather-value-fields">{{visibilityDayTwo}}</p>
+            
+          </mat-card-title>
+        </mat-card-header>
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile >
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            {{dayThreeDay}}
+            <h3></h3>
+            <p class="weather-value-fields">{{tempMaxDayThree}}</p>
+            <p class="weather-value-fields">{{tempMinDayThree}}</p>
+            <!-- <p class="weather-value-fields">{{feelsLike}}</p> -->
+            <p class="weather-value-fields">{{windSpeedDayThree}}</p> 
+            <p class="weather-value-fields">{{sunriseDayThree}}</p>
+            <p class="weather-value-fields">{{sunsetDayThree}}</p>
+            <p class="weather-value-fields">{{humidityDayThree}}</p>
+            <p class="weather-value-fields">{{visibilityDayThree}}</p>
+            
+          </mat-card-title>
+        </mat-card-header>
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile >
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            {{dayFourDay}}
+            <h3></h3>
+            <p class="weather-value-fields">{{tempMaxDayFour}}</p>
+            <p class="weather-value-fields">{{tempMinDayFour}}</p>
+            <!-- <p class="weather-value-fields">{{feelsLike}}</p> -->
+            <p class="weather-value-fields">{{windSpeedDayFour}}</p> 
+            <p class="weather-value-fields">{{sunriseDayFour}}</p>
+            <p class="weather-value-fields">{{sunsetDayFour}}</p>
+            <p class="weather-value-fields">{{humidityDayFour}}</p>
+            <p class="weather-value-fields">{{visibilityDayFour}}</p>
+            
+          </mat-card-title>
+        </mat-card-header>
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile >
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            {{dayFiveDay}}
+            <h3></h3>
+            <p class="weather-value-fields">{{tempMaxDayFive}}</p>
+            <p class="weather-value-fields">{{tempMinDayFive}}</p>
+            <p class="weather-value-fields">{{feelsLikeDayFive}}</p>
+            <p class="weather-value-fields">{{windSpeedDayFive}}</p> 
+            <p class="weather-value-fields">{{sunriseDayFive}}</p>
+            <p class="weather-value-fields">{{sunsetDayFive}}</p>
+            <p class="weather-value-fields">{{humidityDayFive}}</p>
+            <p class="weather-value-fields">{{visibilityDayFive}}</p>
+            
+          </mat-card-title>
+        </mat-card-header>
+      </mat-card>
+    </mat-grid-tile>
+
+
   </mat-grid-list>
 </div>

@@ -8,42 +8,64 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  /** Based on the screen size, switch from standard to one column per row */
-  cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
-    map(({ matches }) => {
-      if (matches) {
-        return [
-          { title: 'Today', cols: 1, rows: 1 },
-          { title: 'Day 2', cols: 1, rows: 1 },
-          { title: 'Day 3', cols: 1, rows: 1 },
-          { title: 'Day 4', cols: 1, rows: 1 },
-          { title: 'Day 5', cols: 1, rows: 1 }
-        ];
-      }
-
-      return [
-        { title: 'Today', cols: 1, rows: 1 },
-        { title: 'Day 2', cols: 1, rows: 1 },
-        { title: 'Day 3', cols: 1, rows: 1 },
-        { title: 'Day 4', cols: 1, rows: 1 },
-        { title: 'Day 5', cols: 1, rows: 1 }
-      ];
-    })
-  );
 
   //these load the current temp fields on forecast dashboard
   //they are populated in getCurrentWeather() function
-  feelsLike='';
-  humidity='';
-  sunrise='';
-  sunset='';
-  temp='';
-  visibility='';
-  windSpeed='';
+  todayTitle= '';
+  feelsLikeDayOne='';
+  humidityDayOne='';
+  sunriseDayOne='';
+  sunsetDayOne='';
+  tempDayOne='';
+  visibilityDayOne='';
+  windSpeedDayOne='';
+
+  dayTwoDay = '';
+  feelsLikeDayTwo='';
+  humidityDayTwo='';
+  sunriseDayTwo='';
+  sunsetDayTwo='';
+  tempMaxDayTwo='';
+  tempMinDayTwo='';
+  visibilityDayTwo='';
+  windSpeedDayTwo='';
+
+  dayThreeDay='';
+  feelsLikeDayThree='';
+  humidityDayThree='';
+  sunriseDayThree='';
+  sunsetDayThree='';
+  tempMaxDayThree='';
+  tempMinDayThree='';
+  visibilityDayThree='';
+  windSpeedDayThree='';
+
+  dayFourDay='';
+  feelsLikeDayFour='';
+  humidityDayFour='';
+  sunriseDayFour='';
+  sunsetDayFour='';
+  tempMaxDayFour='';
+  tempMinDayFour='';
+  visibilityDayFour='';
+  windSpeedDayFour='';
+
+  dayFiveDay='';
+  feelsLikeDayFive='';
+  humidityDayFive='';
+  sunriseDayFive='';
+  sunsetDayFive='';
+  tempMaxDayFive='';
+  tempMinDayFive='';
+  visibilityDayFive='';
+  windSpeedDayFive='';
+
+
   lat = '';
   lon = '';
   cityState='';
   locationInput = '';
+  penis = '';
 
   /**
    * This function uses a regular expression to make sure the user is inputting
@@ -87,16 +109,15 @@ export class HomeComponent {
            throw Error("Low Confidence");
          }
 
-         //console.log(obj);
          return obj;
 
     }
     var loca; // this variable will get the JSON from Open Cage Data for lat and lon on city user inputs
       async function get(lat:String,lon:String) {
-        let url = 'https://api.openweathermap.org/data/2.5/onecall?lat='+lat+'&lon='+lon+'&appid=7166823e1e205e712f9c3c6576878966&units=imperial';
+        let url = 'https://api.openweathermap.org/data/2.5/onecall?lat='+lat+'&lon='+lon+'&cnt=7&appid=7166823e1e205e712f9c3c6576878966&units=imperial';
         let obj = await (await fetch(url)).json();
         
-        console.log(obj);
+        //console.log(obj);
         return obj;
     }
     var tags;
@@ -108,14 +129,12 @@ export class HomeComponent {
 
 
       tags = await get(this.lat,this.lon)
-
-      this.feelsLike= ('Feels Like: ' + Math.floor(tags.current.feels_like)+'°');
-      this.humidity= ('Humidity: ' + tags.current.humidity + '%');
-      this.sunrise= ('Sunrise: ' + this.sunriseSunsetConversion(tags.current.sunrise));
-      this.sunset= ('Sunset: ' + this.sunriseSunsetConversion(tags.current.sunset));
-      this.temp= ('Temperature: ' + Math.floor(tags.current.temp)+'°');
-      this.visibility= ('Visibility: ' + (tags.current.visibility == "10000" ? 10.00 : Math.round(tags.current.visibility*0.000621371 ))+ " mi");
-      this.windSpeed= ('Wind Speed: ' + Math.round(tags.current.wind_speed) + ' mph');
+      console.log(tags);
+       this.getDayOneWeatherInfo(tags);
+       this.getDayTwoWeatherInfo(tags);
+       this.getDayThreeWeatherInfo(tags);
+       this.getDayFourWeatherInfo(tags);
+       this.getDayFiveWeatherInfo(tags);
     })()  
 
   }
@@ -130,6 +149,102 @@ export class HomeComponent {
     var formattedTime = hours%12 + ':' + minutes.substr(-2) + ending;
 
     return formattedTime;
+  }
+
+  getDay(input: number){
+    let unix_time = input;
+    var date = new Date(unix_time * 1000);
+
+    var day = date.getDay();
+
+    if (day == 0){
+      return 'Sunday';
+    }
+
+    if (day == 1){
+      return 'Monday';
+    }
+
+    if (day == 2){
+      return 'Tuesday';
+    }
+
+    if (day == 3){
+      return 'Wednesday';
+    }
+
+    if (day == 4){
+      return 'Thursday';
+    }
+
+    if (day == 5){
+      return 'Friday';
+    }
+
+    if (day == 6){
+      return 'Saturday';
+    }
+
+    return 'NaN';
+  }
+
+  getDayOneWeatherInfo(tags: any){
+      this.todayTitle = 'Today';
+      this.feelsLikeDayOne= ('Feels Like: ' + Math.floor(tags.current.feels_like)+'°');
+      this.humidityDayOne= ('Humidity: ' + tags.current.humidity + '%');
+      this.sunriseDayOne= ('Sunrise: ' + this.sunriseSunsetConversion(tags.current.sunrise));
+      this.sunsetDayOne= ('Sunset: ' + this.sunriseSunsetConversion(tags.current.sunset));
+      this.tempDayOne= ('Temperature: ' + Math.floor(tags.current.temp)+'°');
+      this.visibilityDayOne= ('Visibility: ' + (tags.current.visibility == "10000" ? 10.00 : Math.round(tags.current.visibility*0.000621371 ))+ " mi");
+      this.windSpeedDayOne= ('Wind Speed: ' + Math.round(tags.current.wind_speed) + ' mph');
+  }
+
+  getDayTwoWeatherInfo(tags: any){
+    //this.feelsLikeDayTwo= ('Feels Like: ' + Math.floor(tags.daily[1].feels_like)+'°');
+    this.dayTwoDay = this.getDay(tags.daily[1].dt);
+    this.humidityDayTwo= ('Humidity: ' + tags.daily[1].humidity + '%');
+    this.sunriseDayTwo= ('Sunrise: ' + this.sunriseSunsetConversion(tags.daily[1].sunrise));
+    this.sunsetDayTwo= ('Sunset: ' + this.sunriseSunsetConversion(tags.daily[1].sunset));
+    this.tempMaxDayTwo= ('High: ' + Math.floor(tags.daily[1].temp.max)+'°');
+    this.tempMinDayTwo= ('Low: ' + Math.floor(tags.daily[1].temp.min)+'°');
+    this.visibilityDayTwo= ('Visibility: ' + (tags.daily[1].visibility == "10000" ? 10.00 : Math.round(tags.current.visibility*0.000621371 ))+ " mi");
+    this.windSpeedDayTwo= ('Wind Speed: ' + Math.round(tags.daily[1].wind_speed) + ' mph');
+}
+
+  getDayThreeWeatherInfo(tags: any){
+        //this.feelsLikeDayThree= ('Feels Like: ' + Math.floor(tags.daily[1].feels_like)+'°');
+        this.dayThreeDay = this.getDay(tags.daily[2].dt);
+        this.humidityDayThree= ('Humidity: ' + tags.daily[2].humidity + '%');
+        this.sunriseDayThree= ('Sunrise: ' + this.sunriseSunsetConversion(tags.daily[2].sunrise));
+        this.sunsetDayThree= ('Sunset: ' + this.sunriseSunsetConversion(tags.daily[2].sunset));
+        this.tempMaxDayThree= ('High: ' + Math.floor(tags.daily[2].temp.max)+'°');
+        this.tempMinDayThree= ('Low: ' + Math.floor(tags.daily[2].temp.min)+'°');
+        this.visibilityDayThree= ('Visibility: ' + (tags.daily[2].visibility == "10000" ? 10.00 : Math.round(tags.current.visibility*0.000621371 ))+ " mi");
+        this.windSpeedDayThree= ('Wind Speed: ' + Math.round(tags.daily[2].wind_speed) + ' mph');
+  }
+
+  getDayFourWeatherInfo(tags: any){
+    //this.feelsLikeDayThree= ('Feels Like: ' + Math.floor(tags.daily[1].feels_like)+'°');
+    this.dayFourDay = this.getDay(tags.daily[3].dt);
+    this.humidityDayFour= ('Humidity: ' + tags.daily[3].humidity + '%');
+    this.sunriseDayFour= ('Sunrise: ' + this.sunriseSunsetConversion(tags.daily[3].sunrise));
+    this.sunsetDayFour= ('Sunset: ' + this.sunriseSunsetConversion(tags.daily[3].sunset));
+    this.tempMaxDayFour= ('High: ' + Math.floor(tags.daily[3].temp.max)+'°');
+    this.tempMinDayFour= ('Low: ' + Math.floor(tags.daily[3].temp.min)+'°');
+    this.visibilityDayFour= ('Visibility: ' + (tags.daily[3].visibility == "10000" ? 10.00 : Math.round(tags.current.visibility*0.000621371 ))+ " mi");
+    this.windSpeedDayFour= ('Wind Speed: ' + Math.round(tags.daily[3].wind_speed) + ' mph');
+}
+
+  getDayFiveWeatherInfo(tags: any){
+    //this.feelsLikeDayThree= ('Feels Like: ' + Math.floor(tags.daily[1].feels_like)+'°');
+    this.dayFiveDay = this.getDay(tags.daily[4].dt);
+    this.humidityDayFive= ('Humidity: ' + tags.daily[4].humidity + '%');
+    this.sunriseDayFive= ('Sunrise: ' + this.sunriseSunsetConversion(tags.daily[4].sunrise));
+    this.sunsetDayFive= ('Sunset: ' + this.sunriseSunsetConversion(tags.daily[4].sunset));
+    this.tempMaxDayFive= ('High: ' + Math.floor(tags.daily[4].temp.max)+'°');
+    this.tempMinDayFive= ('Low: ' + Math.floor(tags.daily[4].temp.min)+'°');
+    this.visibilityDayFive= ('Visibility: ' + (tags.daily[4].visibility == "10000" ? 10.00 : Math.round(tags.current.visibility*0.000621371 ))+ " mi");
+    this.windSpeedDayFive= ('Wind Speed: ' + Math.round(tags.daily[4].wind_speed) + ' mph');
   }
 
   constructor(private breakpointObserver: BreakpointObserver) {}
