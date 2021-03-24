@@ -14,15 +14,15 @@
       <mat-card class="dashboard-card">
         <mat-card-header>
           <mat-card-title>
-            {{todayTitle}}
+            {{currentTitle}}
             <h3></h3>
-            <p class="weather-value-fields">{{tempDayOne}}</p>
-            <p class="weather-value-fields">{{feelsLikeDayOne}}</p>
-            <p class="weather-value-fields">{{windSpeedDayOne}}</p> 
-            <p class="weather-value-fields">{{sunriseDayOne}}</p>
-            <p class="weather-value-fields">{{sunsetDayOne}}</p>
-            <p class="weather-value-fields">{{humidityDayOne}}</p>
-            <p class="weather-value-fields">{{visibilityDayOne}}</p>
+            <p class="weather-value-fields">{{temp[0]}}</p>
+            <p class="weather-value-fields">{{feelsLike[0]}}</p>
+            <p class="weather-value-fields">{{windSpeed[0]}}</p> 
+            <p class="weather-value-fields">{{sunrise[0]}}</p>
+            <p class="weather-value-fields">{{sunset[0]}}</p>
+            <p class="weather-value-fields">{{humidity[0]}}</p>
+            <p class="weather-value-fields">{{visibility[0]}}</p>
             
           </mat-card-title>
         </mat-card-header>
@@ -33,16 +33,15 @@
       <mat-card class="dashboard-card">
         <mat-card-header>
           <mat-card-title>
-            {{dayTwoDay}}
+            {{today[1]}}
             <h3></h3>
-            <p class="weather-value-fields">{{tempMaxDayTwo}}</p>
-            <p class="weather-value-fields">{{tempMinDayTwo}}</p>
-            <!-- <p class="weather-value-fields">{{feelsLikeDayTwo}}</p> -->
-            <p class="weather-value-fields">{{windSpeedDayTwo}}</p> 
-            <p class="weather-value-fields">{{sunriseDayTwo}}</p>
-            <p class="weather-value-fields">{{sunsetDayTwo}}</p>
-            <p class="weather-value-fields">{{humidityDayTwo}}</p>
-            <p class="weather-value-fields">{{visibilityDayTwo}}</p>
+            <p class="weather-value-fields">{{high[1]}}</p>
+            <p class="weather-value-fields">{{low[1]}}</p>
+            <p class="weather-value-fields">{{windSpeed[1]}}</p> 
+            <p class="weather-value-fields">{{sunrise[1]}}</p>
+            <p class="weather-value-fields">{{sunset[1]}}</p>
+            <p class="weather-value-fields">{{humidity[1]}}</p>
+            <p class="weather-value-fields">{{visibility[1]}}</p>
             
           </mat-card-title>
         </mat-card-header>
@@ -53,16 +52,15 @@
       <mat-card class="dashboard-card">
         <mat-card-header>
           <mat-card-title>
-            {{dayThreeDay}}
+            {{today[2]}}
             <h3></h3>
-            <p class="weather-value-fields">{{tempMaxDayThree}}</p>
-            <p class="weather-value-fields">{{tempMinDayThree}}</p>
-            <!-- <p class="weather-value-fields">{{feelsLike}}</p> -->
-            <p class="weather-value-fields">{{windSpeedDayThree}}</p> 
-            <p class="weather-value-fields">{{sunriseDayThree}}</p>
-            <p class="weather-value-fields">{{sunsetDayThree}}</p>
-            <p class="weather-value-fields">{{humidityDayThree}}</p>
-            <p class="weather-value-fields">{{visibilityDayThree}}</p>
+            <p class="weather-value-fields">{{high[2]}}</p>
+            <p class="weather-value-fields">{{low[2]}}</p>
+            <p class="weather-value-fields">{{windSpeed[2]}}</p> 
+            <p class="weather-value-fields">{{sunrise[2]}}</p>
+            <p class="weather-value-fields">{{sunset[2]}}</p>
+            <p class="weather-value-fields">{{humidity[2]}}</p>
+            <p class="weather-value-fields">{{visibility[2]}}</p>
             
           </mat-card-title>
         </mat-card-header>
@@ -73,16 +71,15 @@
       <mat-card class="dashboard-card">
         <mat-card-header>
           <mat-card-title>
-            {{dayFourDay}}
+            {{today[3]}}
             <h3></h3>
-            <p class="weather-value-fields">{{tempMaxDayFour}}</p>
-            <p class="weather-value-fields">{{tempMinDayFour}}</p>
-            <!-- <p class="weather-value-fields">{{feelsLike}}</p> -->
-            <p class="weather-value-fields">{{windSpeedDayFour}}</p> 
-            <p class="weather-value-fields">{{sunriseDayFour}}</p>
-            <p class="weather-value-fields">{{sunsetDayFour}}</p>
-            <p class="weather-value-fields">{{humidityDayFour}}</p>
-            <p class="weather-value-fields">{{visibilityDayFour}}</p>
+            <p class="weather-value-fields">{{high[3]}}</p>
+            <p class="weather-value-fields">{{low[3]}}</p>
+            <p class="weather-value-fields">{{windSpeed[3]}}</p> 
+            <p class="weather-value-fields">{{sunrise[3]}}</p>
+            <p class="weather-value-fields">{{sunset[3]}}</p>
+            <p class="weather-value-fields">{{humidity[3]}}</p>
+            <p class="weather-value-fields">{{visibility[3]}}</p>
             
           </mat-card-title>
         </mat-card-header>
@@ -93,16 +90,15 @@
       <mat-card class="dashboard-card">
         <mat-card-header>
           <mat-card-title>
-            {{dayFiveDay}}
+            {{today[4]}}
             <h3></h3>
-            <p class="weather-value-fields">{{tempMaxDayFive}}</p>
-            <p class="weather-value-fields">{{tempMinDayFive}}</p>
-            <p class="weather-value-fields">{{feelsLikeDayFive}}</p>
-            <p class="weather-value-fields">{{windSpeedDayFive}}</p> 
-            <p class="weather-value-fields">{{sunriseDayFive}}</p>
-            <p class="weather-value-fields">{{sunsetDayFive}}</p>
-            <p class="weather-value-fields">{{humidityDayFive}}</p>
-            <p class="weather-value-fields">{{visibilityDayFive}}</p>
+            <p class="weather-value-fields">{{high[4]}}</p>
+            <p class="weather-value-fields">{{low[4]}}</p>
+            <p class="weather-value-fields">{{windSpeed[4]}}</p> 
+            <p class="weather-value-fields">{{sunrise[4]}}</p>
+            <p class="weather-value-fields">{{sunset[4]}}</p>
+            <p class="weather-value-fields">{{humidity[4]}}</p>
+            <p class="weather-value-fields">{{visibility[4]}}</p>
             
           </mat-card-title>
         </mat-card-header>
