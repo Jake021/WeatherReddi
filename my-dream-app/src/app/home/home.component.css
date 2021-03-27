@@ -19,3 +19,11 @@
 .dashboard-card-content {
   text-align: center;
 }
+
+.weather-value-fields {
+  font-size: small;
+}
+
+.center{
+  text-align: center;
+}
