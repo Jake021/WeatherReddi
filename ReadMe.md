@@ -27,7 +27,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/Jake021/WeatherReddi">
-    <img src="ReadMeScreenshots/WeatherReddi.png" alt="Logo" width="256" height="256">
+    <img src="WeatherReddi.png" alt="Logo" width="256" height="256">
   </a>
 
   <h3 align="center">WeatherReddi</h3>
@@ -60,7 +60,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-<img src="ReadMeScreenshots/ApplicationOverview.png" alt="Logo" width="256" height="256">
+<img src="ApplicationOverview.png" alt="Logo" width="256" height="256">
 <!-- Here is where we would add more information regarding the product.-->
 Here's a blank template to get started:
 **To avoid retyping too much info. Do a search and replace with your text editor for the following:**
