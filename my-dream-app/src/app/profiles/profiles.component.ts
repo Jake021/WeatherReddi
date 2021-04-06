@@ -2,6 +2,11 @@ import { Component } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 
+interface Profile {
+  value: string;
+  viewValue: string;
+}
+
 @Component({
   selector: 'app-profiles',
   templateUrl: './profiles.component.html',
@@ -9,25 +14,17 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 })
 export class ProfilesComponent {
   /** Based on the screen size, switch from standard to one column per row */
-  cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
-    map(({ matches }) => {
-      if (matches) {
-        return [
-          { title: 'Card 1', cols: 1, rows: 1 },
-          { title: 'Card 2', cols: 1, rows: 1 },
-          { title: 'Card 3', cols: 1, rows: 1 },
-          { title: 'Card 4', cols: 1, rows: 1 }
-        ];
-      }
+  Profiles: Profile[] = [
+    {value: 'steak-0', viewValue: 'Steak'},
+    {value: 'pizza-1', viewValue: 'Pizza'},
+    {value: 'tacos-2', viewValue: 'Tacos'},
+    {value: 'testFood-3', viewValue: 'testFood'}
+  ];
+  
+  temp = "";
 
-      return [
-        { title: 'Card 1', cols: 2, rows: 1 },
-        { title: 'Card 2', cols: 1, rows: 1 },
-        { title: 'Card 3', cols: 1, rows: 2 },
-        { title: 'Card 4', cols: 1, rows: 1 }
-      ];
-    })
-  );
-
+  profileSelect(input : Profile){
+    this.temp =  input.value;
+  }
   constructor(private breakpointObserver: BreakpointObserver) {}
 }
