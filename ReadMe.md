@@ -60,7 +60,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-<img src="ApplicationOverview.png" alt="Logo" width="1080" height="1080">
+<img src="ApplicationOverview.png" alt="Logo" width="800" height="600">
 
 <!-- Here is where we would add more information regarding the product.-->
 Here's a blank template to get started:
