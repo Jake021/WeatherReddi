@@ -63,16 +63,14 @@
 <img src="ApplicationOverview.png" alt="Logo" width="800" height="600">
 
 <!-- Here is where we would add more information regarding the product.-->
-Here's a blank template to get started:
-**To avoid retyping too much info. Do a search and replace with your text editor for the following:**
-`github_username`, `repo_name`, `twitter_handle`, `email`, `project_title`, `project_description`
+Here is where we would add more information regarding the product
 
 
 ### Built With
 
-* [https://nodejs.org/en/](NodeJS)
-* [https://www.npmjs.com/get-npm](Angular CLI)
-* [https://www.npmjs.com/get-npm](Angular Material)
+* [NodeJS](https://nodejs.org/en/)
+* [Angular CLI](https://angular.io/cli)
+* [Angular Material](https://material.angular.io/)
 
 
 <!-- USAGE EXAMPLES -->
