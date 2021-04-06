@@ -60,7 +60,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<img src="ApplicationOverview.png" alt="Logo" width="1080" height="1080">
 
 <!-- Here is where we would add more information regarding the product.-->
 Here's a blank template to get started:
