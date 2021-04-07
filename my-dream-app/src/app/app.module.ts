@@ -23,6 +23,7 @@ import { LoginSignupComponent } from './login-signup/login-signup.component';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field'; 
 import { MatInputModule } from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select'; 
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { MatInputModule } from '@angular/material/input';
     MatMenuModule,
     FormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
