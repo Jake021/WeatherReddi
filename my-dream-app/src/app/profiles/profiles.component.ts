@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
+import { Router } from '@angular/router';
 
 interface Profile {
   value: string;
@@ -26,5 +27,11 @@ export class ProfilesComponent {
   profileSelect(input : Profile){
     this.temp =  input.value;
   }
-  constructor(private breakpointObserver: BreakpointObserver) {}
+
+  routeToCreateNewProfilePage(){ 
+    //window.alert("Needs to Route to login page");
+    this.router.navigateByUrl('/create-new-profile');
+  } 
+
+  constructor(private breakpointObserver: BreakpointObserver, private router: Router) {}
 }

@@ -1,11 +1,11 @@
 <div class="grid-container">
   <h1 class="mat-h1">Profiles</h1>
   
-  <button mat-raised-button> Create new Profile</button>
+  <button mat-raised-button (click)="routeToCreateNewProfilePage()"> Create new Profile</button>
   <mat-grid-list cols="2" rowHeight = "1:2" >
     <!-- use code to pull other information-->
     <mat-grid-tile><mat-card class =  "dashboard-card">
-      <p> Current Profiles</p> 
+      <p>Current Profiles</p> 
       <button mat-button [matMenuTriggerFor]="menu">Menu</button>
       <mat-menu #menu="matMenu">
         <mat-option #matOption (click)="profileSelect(matOption)" *ngFor="let Profile of Profiles" [value]="Profile.value">
@@ -14,7 +14,7 @@
       </mat-menu>
     </mat-card></mat-grid-tile>
     <mat-grid-tile><mat-card class =  "dashboard-card">
-      <p> Selected Profile Settings</p> 
+      <p>Selected Profile Settings</p> 
       {{temp}}
     </mat-card>
   </mat-grid-tile>
