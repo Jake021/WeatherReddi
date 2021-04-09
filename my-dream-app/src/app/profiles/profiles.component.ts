@@ -29,7 +29,7 @@ export class ProfilesComponent {
   }
 
   routeToCreateNewProfilePage(){ 
-    //window.alert("Needs to Route to login page");
+    //window.alert("Needs to Route to create profile page");
     this.router.navigateByUrl('/create-new-profile');
   } 
 

@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-new-profile-page.component.css']
 })
 export class CreateNewProfilePageComponent implements OnInit {
-
+  profileNameInput = '';
+  
   constructor() { }
 
   ngOnInit(): void {
