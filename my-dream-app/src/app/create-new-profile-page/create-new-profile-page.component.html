@@ -9,25 +9,82 @@
     <mat-form-field>
         <input matInput type="text" class="form-control" id="profileNameInput" name="profileNameInput" [(ngModel)]="profileNameInput" placeholder="Enter Profile Name">
         </mat-form-field>
+
+        <button mat-raised-button (click) = "submit()">Submit</button>
         <br/>
 
-        <mat-grid-list cols="2" rowHeight = "1:2" >
+        <mat-grid-list cols="3" rowHeight = "1:2" >
         <mat-grid-tile>
             <mat-card class = "dashboard-card">
-            <p>Profile Settings</p> 
-            <mat-slide-toggle [(ngModel)]="tempBoolean" >Slide me!</mat-slide-toggle>
-                <p>Temp Greater Than </p><mat-slider
+            <mat-card-title>Temperature Settings</mat-card-title> 
+            <mat-slide-toggle [(ngModel)]="tempBoolean">Notifications</mat-slide-toggle>
+            <br/>
+            <br/>
+                <p class="spacer">Temperature greater than (degrees):</p><mat-slider
                 thumbLabel
                 tickInterval ="5"
                 min="1"
                 max="120"
-                [(ngModel)]="temp"
+                [(ngModel)]="tempGreaterThan"
                 ></mat-slider>
+
+                <p>Temperature less than (degrees):</p><mat-slider
+                thumbLabel
+                tickInterval ="5"
+                min="1"
+                max="120"
+                [(ngModel)]="tempLessThan"
+                ></mat-slider>
+          </mat-card>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <mat-card class = "dashboard-card">
+            <mat-card-title>Precipitation Settings</mat-card-title> 
+            <mat-slide-toggle [(ngModel)]="precipitationBoolean">Notifications</mat-slide-toggle>
+            <br/>
+            <br/>
+            <p>SnowFall greater than (inches):</p><mat-slider
+            thumbLabel
+            tickInterval ="1"
+            min="1"
+            max="4"
+            [(ngModel)]="snowGreaterThan"
+            ></mat-slider>
+
+            <p>Rainfall greater than (inches):</p><mat-slider
+            thumbLabel
+            tickInterval ="1"
+            min="1"
+            max="4"
+            [(ngModel)]="rainGreaterThan"
+            ></mat-slider>
+
+            <p>Humidity greater than (percentage):</p><mat-slider
+                thumbLabel
+                tickInterval ="5"
+                min="1"
+                max="100"
+                [(ngModel)]="humidityGreaterThan"
+                ></mat-slider>
+
+                <p>Humidity less than (percentage):</p><mat-slider
+                thumbLabel
+                tickInterval ="5"
+                min="1"
+                max="100"
+                [(ngModel)]="humidityLessThan"
+                ></mat-slider>
+          </mat-card>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <mat-card class = "dashboard-card">
+                <mat-card-title>Severe Weather Settings</mat-card-title> 
+                <mat-slide-toggle [(ngModel)]="severeWeatherBoolean">Notifications</mat-slide-toggle>
+
           </mat-card>
         </mat-grid-tile>
     </mat-grid-list>
 
-
-        <br/>
-        <button mat-raised-button (click) = "submit()">Submit</button>
 </div>
