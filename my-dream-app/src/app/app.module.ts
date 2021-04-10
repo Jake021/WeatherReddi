@@ -25,6 +25,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import { CreateNewProfilePageComponent } from './create-new-profile-page/create-new-profile-page.component'; 
+import {MatSlideToggleModule} from '@angular/material/slide-toggle'; 
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { CreateNewProfilePageComponent } from './create-new-profile-page/create-
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatSlideToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

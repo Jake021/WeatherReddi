@@ -15,12 +15,19 @@
         <mat-grid-tile>
             <mat-card class = "dashboard-card">
             <p>Profile Settings</p> 
-            
+            <mat-slide-toggle [(ngModel)]="tempBoolean" >Slide me!</mat-slide-toggle>
+                <p>Temp Greater Than </p><mat-slider
+                thumbLabel
+                tickInterval ="5"
+                min="1"
+                max="120"
+                [(ngModel)]="temp"
+                ></mat-slider>
           </mat-card>
         </mat-grid-tile>
     </mat-grid-list>
 
 
         <br/>
-        <button mat-raised-button>Submit</button>
+        <button mat-raised-button (click) = "submit()">Submit</button>
 </div>
