@@ -4,7 +4,7 @@
   <button mat-raised-button (click)="routeToCreateNewProfilePage()"> Create new Profile</button>
   <mat-grid-list cols="2" rowHeight = "1:2" >
     <!-- use code to pull other information-->
-    <mat-grid-tile><mat-card class =  "dashboard-card">
+    <mat-grid-tile ><mat-card class =  "dashboard-card" id = "selectBox">
       <p>Current Profiles</p> 
       <button mat-button [matMenuTriggerFor]="menu">Menu</button>
       <mat-menu #menu="matMenu">
@@ -13,7 +13,7 @@
         </mat-option>
       </mat-menu>
     </mat-card></mat-grid-tile>
-    <mat-grid-tile><mat-card class =  "dashboard-card">
+    <mat-grid-tile><mat-card class =  "dashboard-card" id = "selectBox">
       <p>Selected Profile Settings</p> 
       {{temp}}
     </mat-card>

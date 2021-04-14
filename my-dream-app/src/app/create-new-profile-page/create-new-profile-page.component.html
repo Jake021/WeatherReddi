@@ -1,11 +1,11 @@
-<div class="grid-container">
+<div class="grid-container" >
 
     <!-- adding some space here-->
     <p></p>
     <p></p>
     <p></p>
 
-    <h1 class="mat-h1">Create A New Profile</h1>
+    <h1 class="mat-h1" >Create A New Profile</h1>
     <mat-form-field>
         <input matInput type="text" class="form-control" id="profileNameInput" name="profileNameInput" [(ngModel)]="profileNameInput" placeholder="Enter Profile Name">
         </mat-form-field>
@@ -15,7 +15,7 @@
 
         <mat-grid-list cols="3" rowHeight = "1:2" >
         <mat-grid-tile>
-            <mat-card class = "dashboard-card">
+            <mat-card class = "dashboard-card" id = "selectBox">
             <mat-card-title>Temperature Settings</mat-card-title> 
             <mat-slide-toggle [(ngModel)]="tempBoolean">Notifications</mat-slide-toggle>
             <br/>
@@ -39,7 +39,7 @@
         </mat-grid-tile>
 
         <mat-grid-tile>
-            <mat-card class = "dashboard-card">
+            <mat-card class = "dashboard-card" id = "selectBox">
             <mat-card-title>Precipitation Settings</mat-card-title> 
             <mat-slide-toggle [(ngModel)]="precipitationBoolean">Notifications</mat-slide-toggle>
             <br/>
@@ -79,7 +79,7 @@
         </mat-grid-tile>
 
         <mat-grid-tile>
-            <mat-card class = "dashboard-card">
+            <mat-card class = "dashboard-card" id = "selectBox">
                 <mat-card-title>Severe Weather Settings</mat-card-title> 
                 <mat-slide-toggle [(ngModel)]="severeWeatherBoolean">Notifications</mat-slide-toggle>
 
