@@ -6,7 +6,8 @@ async function main() {
   try {
     await client.connect();
     await listDatabases(client);
-    await findOneListingByName(client, "Sunny Days");
+    await findOneProfileByName(client, "Sunny Days");
+    await findAllByUserID(client, 0);
   } catch (e) {
     console.log(e);
   } finally {
@@ -22,7 +23,22 @@ async function listDatabases(client) {
   dataBasesList.databases.forEach(db => console.log(` - ${db.name} `));
 };
 
-async function findOneListingByName(client, nameOfListing) {
+async function findAllByUserID(client, id) {
+  const cursor = client.db("weatherReddi").collection("profiles").find({ user_id: id}).sort( {profile_Name : 1});
+  const results = await cursor.toArray();
+
+  if (results.length > 0) {
+    console.log(`Results Found for ID : '${id}'`);
+    results.forEach((result, i) => {
+      console.log(result);
+    });
+  }
+
+
+
+}
+
+async function findOneProfileByName(client, nameOfListing) {
   const result = await client.db("weatherReddi").collection("profiles").findOne({ profile_Name: nameOfListing});
   if (result) {
     console.log(`Found Data '${nameOfListing}':`);
