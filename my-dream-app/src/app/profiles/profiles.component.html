@@ -6,12 +6,12 @@
     <!-- use code to pull other information-->
     <mat-grid-tile ><mat-card class =  "dashboard-card" id = "selectBox">
       <p>Current Profiles</p> 
-      <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+      <!-- <button mat-button [matMenuTriggerFor]="menu">Menu</button>
       <mat-menu #menu="matMenu">
         <mat-option #matOption (click)="profileSelect(matOption)" *ngFor="let Profile of Profiles" [value]="Profile.value">
           {{Profile.viewValue}}
         </mat-option>
-      </mat-menu>
+      </mat-menu> -->
     </mat-card></mat-grid-tile>
     <mat-grid-tile><mat-card class =  "dashboard-card" id = "selectBox">
       <p>Selected Profile Settings</p> 
