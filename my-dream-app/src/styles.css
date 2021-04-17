@@ -1,7 +1,34 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
+}
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+#main{
+    background-image: url("https://images.pexels.com/photos/907485/pexels-photo-907485.jpeg?cs=srgb&dl=pexels-ithalu-dominguez-907485.jpg&fm=jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+#sideBar{
+    background-image: linear-gradient( rgba(196, 159, 255, 0.267), rgba(123, 125, 255, 0.253))
+}
+
+#selectBox{
+    background-color: rgba(3, 27, 136, .3)
+}
+
+.mat-raised-button{
+    background-color: rgba(250, 168, 185, 1);
+}
+
+#header{
+    border-radius: 25px;
+    background-image:linear-gradient(to bottom right, rgba(3, 27, 136, .3),rgba(251, 123, 142, 1));
+    font-size: 250%;
+}
+
+

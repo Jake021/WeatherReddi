@@ -1,0 +1,12 @@
+.dashboard-card {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    height: 100%
+  }
+
+  .spacer{
+    top: 15px;
+  }
