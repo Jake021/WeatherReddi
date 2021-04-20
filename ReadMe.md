@@ -2,7 +2,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/Jake021/WeatherReddi">
-    <img src="WeatherReddi.png" alt="Logo" width="256" height="256">
+    <img src="images/WeatherReddi.png" alt="Logo" width="256" height="256">
   </a>
 
   <h3 align="center">WeatherReddi</h3>
@@ -33,7 +33,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-<img src="ApplicationOverview.png" alt="Logo" width="800" height="600">
+<img src="images/ApplicationOverview.png" alt="Logo" width="800" height="600">
 
 <!-- Here is where we would add more information regarding the product.-->
 The WeatherReddi application, in a broad sense, will pull weather information for the location that a user requests (with the intent being a location the user lives in, can use location services for this). Aside from pulling this information, the user can define inclement weather that they would like to be alerted via text or some notification before or during the time the weather hits, so they can make necessary plans to prepare for it
