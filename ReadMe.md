@@ -1,28 +1,3 @@
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Thanks again! Now go create something AMAZING! :D
-***
-***
-***
-*** To avoid retyping too much info. Do a search and replace for the following:
-*** github_username, repo_name, twitter_handle, email, project_title, project_description
--->
-
-
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
-
-
-
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
@@ -55,16 +30,13 @@
   </ol>
 </details>
 
-
-
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
 <img src="ApplicationOverview.png" alt="Logo" width="800" height="600">
 
 <!-- Here is where we would add more information regarding the product.-->
-Here is where we would add more information regarding the product
-
+The WeatherReddi application, in a broad sense, will pull weather information for the location that a user requests (with the intent being a location the user lives in, can use location services for this). Aside from pulling this information, the user can define inclement weather that they would like to be alerted via text or some notification before or during the time the weather hits, so they can make necessary plans to prepare for it
 
 ### Built With
 
@@ -74,12 +46,18 @@ Here is where we would add more information regarding the product
 
 
 <!-- USAGE EXAMPLES -->
-## Usage
+## What Problem Does WeatherReddi Solve?
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+John lives in a state that frequently has overnight snow in the winter months. This means that unless John checks his weather app every day, there are some mornings John will wake up to snow covering his car and bad road conditions. 
 
+John also has a job where he must commute in the morning hours. Finding his car covered in snow and/or seeing that traffic is backed up will add time to his morning commute which could result in him being late to work.
+
+With WeatherReddi, John can set his weather preferences to alert him of snow in the forecast. WeatherReddi sees that it will snow overnight and then sends him a text 24 hours prior. Now he can plan his routine accordingly.
 
 <!-- Meet The Team -->
 ## Meet The Team
 
-Link headshots of our team or link Githubs 
+* Marcus Behr - Group Manager and Developer
+* Isiah Taylor - Developer 
+* Cody Curtis - Documentation and Database Engineer
+* Jacob Gerval - BA, Scrum Master, and Documentation
