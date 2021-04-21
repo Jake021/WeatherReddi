@@ -3,14 +3,14 @@ const Profile = require('../models/profiles');
 exports.createProfile = (req, res, next) => {
   const url = req.protocol + '://' + req.get('host');
   const profile = new Profile({
-    profile_name: req.body.profile_name,
-    temp_gte: req.body.temp_gte,
-    temp_lte: req.body.temp_lte,
+    profile_Name: req.body.profile_Name,
+    max_temp: req.body.max_temp,
+    min_temp: req.body.min_temp,
     snowFall: req.body.snowFall,
     rainFall: req.body.rainFall,
-    humidity_gte: req.body.humidity_gte,
-    humidity_lte: req.body.humidity_lte,
-    severeWeather: req.body.severeWeather
+    max_humidity: req.body.max_humidity,
+    min_humidity: req.body.min_humidity,
+    Extreme: req.body.Extreme
   });
   profile
     .save()
@@ -33,28 +33,28 @@ exports.createProfile = (req, res, next) => {
 exports.updateProfile = (req, res, next) => {
   const profile = new Profile({
     _id: req.body.id,
-    profile_name: req.body.profile_name,
-    temp_gte: req.body.temp_gte,
-    temp_lte: req.body.temp_lte,
+    profile_Name: req.body.profile_Name,
+    max_temp: req.body.max_temp,
+    min_temp: req.body.min_temp,
     snowFall: req.body.snowFall,
     rainFall: req.body.rainFall,
-    humidity_gte: req.body.humidity_gte,
-    humidity_lte: req.body.humidity_lte,
-    severeWeather: req.body.severeWeather
+    max_humidity: req.body.max_humidity,
+    min_humidity: req.body.min_humidity,
+    Extreme: req.body.Extreme
   });
-  Profile.updateOne({ _id: req.params.id, creator: req.userData.userId }, profile)
-    .then(result => {
-      if (result.n > 0) {
-        res.status(200).json({ message: 'Update successful!' });
-      } else {
-        res.status(401).json({ message: 'Not authorized!' });
-      }
-    })
-    .catch(error => {
-      res.status(500).json({
-        message: "Couldn't update profile!"
-      });
+  Profile.updateOne({ _id: req.params.id }, profile)
+  .then(result => {
+    console.log(result);
+    if (result.n > 0) {
+      res.status(200).json({ message: 'Update successful!' });
+    } else {
+      res.status(401).json({ message: 'Not authorized!' });
+    }
+  }).catch(error => {
+    res.status(500).json({
+      message: 'Update failed!'
     });
+  });
 };
 
 exports.getProfiles = (req, res, next) => {
@@ -91,7 +91,7 @@ exports.deleteProfile = (req, res, next) => {
     })
     .catch(error => {
       res.status(500).json({
-        message: 'Fetching post failed!'
+        message: 'Fetching failed!'
       });
     });
 };
